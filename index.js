@@ -67,9 +67,9 @@ async function fetchPdfAsync(url: string): Promise<string> {
   return readAsTextAsync(mediaBlob)
 }
 
-const Loader = () => (
+const Loader = (props) => (
   <View style={{ flex: 1, justifyContent: 'center' }}>
-    <ActivityIndicator size="large"/>
+    <ActivityIndicator size="large" color={props.color}/>
   </View>
 )
 
@@ -149,7 +149,7 @@ class PdfReader extends Component<Props, State> {
 
     if (ready && data && ios) {
       return (
-        <View style={styles.container}>
+        <View style={[styles.container, this.props.containerStyle]}>
           <WebView
             style={styles.webview}
             source={{ uri: data }}
@@ -160,7 +160,7 @@ class PdfReader extends Component<Props, State> {
 
     if (ready && data && android) {
       return (
-        <View style={styles.container}>
+        <View style={[styles.container, this.props.containerStyle]}>
           <WebView
             style={styles.webview}
             source={{ uri: htmlPath }}
@@ -170,7 +170,7 @@ class PdfReader extends Component<Props, State> {
       )
     }
 
-    return <Loader />
+    return <Loader color={this.props.loaderColor} />
   }
 }
 

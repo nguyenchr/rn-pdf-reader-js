@@ -19,7 +19,7 @@
 
 ## Limitations
 - **Display file only on full screen.**
-- **Embeded images binary are not display (yet) in Android** 
+- **Embeded images binary are not display (yet) in Android**
 
 [PRs are welcome...](https://github.com/xcarpentier/rn-pdf-reader-js/pulls)
 
@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
 * source: `Object`
   * uri?: `string` - can be local or served on the web (ie. start withs `https://` or `file://`)
   * base64?: `string` - should start with `data`
+* containerStyle: `Object` - styles to pass to the container of the webview
+* loaderColor: `string` - color of the activity indicator while pdf is loading
 
 ## Requirements
 * Use it into Expo app (from expo client, Standalone app or ExpoKit app).
