@@ -89,9 +89,9 @@ async function urlToBlob(url) {
   })
 }
 
-const Loader = () => (
+const Loader = (props) => (
   <View style={{ flex: 1, justifyContent: 'center' }}>
-    <ActivityIndicator size="large" />
+    <ActivityIndicator size="large" color={props.color}/>
   </View>
 )
 
@@ -207,7 +207,7 @@ class PdfReader extends Component<Props, State> {
 
     if (ready && data && android) {
       return (
-        <View style={[styles.container, style]}>
+        <View style={[styles.container, this.props.containerStyle]}>
           <WebView
             onLoad={onLoad}
             allowFileAccess
@@ -221,7 +221,7 @@ class PdfReader extends Component<Props, State> {
       )
     }
 
-    return <Loader />
+    return <Loader color={this.props.loaderColor} />
   }
 }
 
