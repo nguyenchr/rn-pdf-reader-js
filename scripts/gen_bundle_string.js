@@ -24,7 +24,9 @@ export function getBundleMd5() {
   return '${md5}'
 }
 `
+
 if(fs.existsSync(destinationPath)) {
   fs.unlinkSync(destinationPath)
 }
+
 fs.writeFileSync(destinationPath, bundleContainerFileContent, encoding)

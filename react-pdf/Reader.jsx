@@ -53,10 +53,10 @@ class Reader extends Component {
     event.preventDefault()
     const { currentPage, touchStartY, numPages } = this.state
     const { clientY: touchEndY } = event.changedTouches[0]
-    if (touchStartY > touchEndY && currentPage < numPages) {
+    if (touchStartY < touchEndY && currentPage < numPages) {
       raf(this.down)
     }
-    if (touchStartY < touchEndY && currentPage > 1) {
+    if (touchStartY > touchEndY && currentPage > 1) {
       raf(this.up)
     }
   }
