@@ -207,7 +207,7 @@ class PdfReader extends Component<Props, State> {
 
     if (ready && data && android) {
       return (
-        <View style={[styles.container, this.props.containerStyle]}>
+        <View style={[styles.container, style]}>
           <WebView
             onLoad={onLoad}
             allowFileAccess
